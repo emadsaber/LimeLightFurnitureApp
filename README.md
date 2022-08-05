@@ -1,10 +1,10 @@
 # LimeLightFurnitureApp
 A sample app to test CircleCI pipelines
 # Template:
-[![emadsaber](https://circleci.com/<VCS>/emadsaber/LimeLightFurnitureApp.svg?style=svg)](<LINK>)
+[![emadsaber](https://circleci.com/gh/emadsaber/LimeLightFurnitureApp.svg?style=svg)]([<LINK>](https://app.circleci.com/pipelines/github/emadsaber/LimeLightFurnitureApp?branch=main))
 
 # Example:
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
+[![CircleCI](https://circleci.com/gh/circleci/LimeLightFurnitureApp.svg?style=svg)](https://circleci.com/gh/circleci/LimeLightFurnitureApp)
 
 # Example for specific branch:
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs/tree/main.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs/?branch=main)
+[![CircleCI](https://circleci.com/gh/circleci/LimeLightFurnitureApp/tree/main.svg?style=svg)](https://circleci.com/gh/circleci/LimeLightFurnitureApp/?branch=main)
