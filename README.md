@@ -1,7 +1,7 @@
 # LimeLightFurnitureApp
 A sample app to test CircleCI pipelines
 # Template:
-[![<ORG_NAME>](https://circleci.com/<VCS>/<ORG_NAME>/<PROJECT_NAME>.svg?style=svg)](<LINK>)
+[![emadsaber](https://circleci.com/<VCS>/emadsaber/LimeLightFurnitureApp.svg?style=svg)](<LINK>)
 
 # Example:
 [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
