@@ -15,6 +15,14 @@ jobs:
     steps:
       - print_pipeline_id:
           id: << pipeline.id >>
+      - run: 
+          name: error throw
+          command: exit 1
+
+      - run: 
+          name: handle error
+          command: echo "Error handled!"
+          when: on_fail
 
 workflows:
   my_workflow:
