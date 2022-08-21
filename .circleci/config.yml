@@ -9,22 +9,19 @@ commands:
       - run: echo << parameters.id >>
 
 jobs:
-  my_job:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - print_pipeline_id:
-          id: << pipeline.id >>
-      - run: 
-          name: error throw
-          command: exit 0
-
-      - run: 
-          name: handle error
-          command: echo "Error handled!"
-          when: on_fail
-
+  create_infrastructure: 
+      docker:
+        - image: amazon/aws-cli
+      steps:
+        - checkout
+        - run:
+            name: Create Cloudformation Stack
+            command: |
+              aws cloudformation deploy \
+                --template-file cftemplate.yaml \
+                --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
+                --region us-west-2
 workflows:
   my_workflow:
     jobs:
-      - my_job
+      - create_infrastructure
