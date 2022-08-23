@@ -37,15 +37,15 @@ jobs:
     steps:
       - run: apk add --update curl
       - run:
-        name: smoke testing
-        command: |
-          URL = "https://emadsaber89.wordpress.com/"
-          if curl -s --head ${URL}
-          then
-            return 0 #so the task will succeed
-          else
-            return 1 #so the task will fail
-          fi
+          name: smoke testing
+          command: |
+            URL = "https://emadsaber89.wordpress.com/"
+            if curl -s --head ${URL}
+            then
+              return 0 #so the task will succeed
+            else
+              return 1 #so the task will fail
+            fi
 workflows:
   my_workflow:
     jobs:
