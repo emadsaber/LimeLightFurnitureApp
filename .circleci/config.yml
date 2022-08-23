@@ -39,7 +39,7 @@ jobs:
       - run:
           name: smoke testing
           command: |
-            URL = "https://emadsaber89.wordpress.com/"
+            URL="https://emadsaber89.wordpress.com/"
             if curl -s --head ${URL}
             then
               return 0 #so the task will succeed
