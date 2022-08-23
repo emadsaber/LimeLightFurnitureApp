@@ -13,25 +13,42 @@ jobs:
   #               --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
   #               --region us-west-2
 
-  configure_infrastructure: 
+  # configure_infrastructure: 
+  #   docker:
+  #     - image: python:3.7-alpine3.11
+  #   steps:
+  #     - checkout
+  #     - add_ssh_keys:
+  #             # You can get this ID in the section where you registered the SSH Key
+  #             fingerprints: ["ac:2b:8b:9b:de:ce:77:e1:0a:9e:93:06:0b:d6:ff:f6"] 
+  #     - run:
+  #         name: Install Ansible
+  #         command: |
+  #           # Install Ansible
+  #           apk add --update ansible
+  #     - run:
+  #         name: Run Playbook and Configure server
+  #         command: |
+  #           ansible-playbook -i inventory.txt main-ec2.yaml
+
+  smoke_test:
     docker:
-      - image: python:3.7-alpine3.11
+      - image: alpine:latest
     steps:
-      - checkout
-      - add_ssh_keys:
-              # You can get this ID in the section where you registered the SSH Key
-              fingerprints: ["ac:2b:8b:9b:de:ce:77:e1:0a:9e:93:06:0b:d6:ff:f6"] 
+      - run: apk add --update curl
       - run:
-          name: Install Ansible
-          command: |
-            # Install Ansible
-            apk add --update ansible
-      - run:
-          name: Run Playbook and Configure server
-          command: |
-            ansible-playbook -i inventory.txt main-ec2.yaml
+        name: smoke testing
+        command: |
+          URL = "https://emadsaber89.wordpress.com/"
+          if curl -s --head ${URL}
+          then
+            return 0 #so the task will succeed
+          else
+            return 1 #so the task will fail
+          fi
 workflows:
   my_workflow:
     jobs:
       #- create_infrastructure
-      - configure_infrastructure
+      #- configure_infrastructure
+      - smoke_test
