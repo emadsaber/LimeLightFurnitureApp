@@ -93,10 +93,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Execute cloudfront.yml
+          name: Execute cloudfront.yaml
           command: |
             aws cloudformation deploy \
-            --template-file cloudfront.yml \
+            --template-file cloudfront.yaml \
             --stack-name production-distro \
             --parameter-overrides PipelineID="my${CIRCLE_WORKFLOW_ID:0:7}bucket"
   clean_up_old_front_end:
