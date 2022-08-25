@@ -83,6 +83,9 @@ jobs:
             aws cloudformation \
             list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
             --no-paginate --output text > ~/textfile.txt
+            echo "printing contents..."
+            cat ~/textfile.txt
+            echo ".................."
       - persist_to_workspace:
           root: ~/
           paths: 
@@ -113,6 +116,7 @@ jobs:
           # Similarly, you can create and use $OldStackID environment variable in place of production-distro 
           command: |
             export OldBucketID=$(cat ~/textfile.txt)
+            echo "OldBucketID: ${OldBucketID}"
             aws s3 rm "s3://${OldBucketID}" --recursive
 
 workflows:
